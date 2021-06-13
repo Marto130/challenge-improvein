@@ -5,7 +5,7 @@ let Schema = mongoose.Schema;
 const EpisodesTvShowSchema = new Schema({
 
     tvShow: {
-      type:[ Schema.Types.ObjectId ],
+      type: Schema.Types.ObjectId,
       ref: "tvShow",
       required: [true, 'The Tv Show is required.'],
     },

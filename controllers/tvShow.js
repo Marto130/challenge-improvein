@@ -40,7 +40,51 @@ async function createEpisode(req, res) {
   }
 }
 
+async function getEpisodeById(req, res) {
+  try {
+    const { id: episodeId } = req.params;
+
+    const episodeFound = await Episode.findOne(
+      { _id: episodeId },
+      {
+        createAt: 0,
+        status: 0,
+        _id: 0,
+      }
+    )
+      .populate('tvShow', 'title -_id')
+      .populate("starring", "name -_id")
+      .populate("director", "name -_id")
+      .exec();
+
+    if (!episodeFound) {
+      return res.status(201).send(
+        serializeResponse(true, "Episode not found.", {
+          episodeId,
+        })
+      );
+    }
+
+    return res.status(201).send(
+      serializeResponse(true, "Episode found.", {
+        episodeFound,
+      })
+    );
+  } catch (error) {
+    return res
+      .status(500)
+      .send(
+        serializeResponse(
+          false,
+          "Error when searching Tv Show episode in the database.",
+          error.stack
+        )
+      );
+  }
+}
+
 module.exports = {
   createTvShow,
-  createEpisode
-}
+  createEpisode,
+  getEpisodeById,
+};
