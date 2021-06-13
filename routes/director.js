@@ -1,9 +1,10 @@
 "use strict";
 
 const express = require("express");
-const {createMovie} = require('../controllers/movie');
+const {createDirector} = require('../controllers/director');
 const api = express.Router();
 
-api.post("/", createMovie);
+api.post("/", createDirector);
+
 
 module.exports = api;
