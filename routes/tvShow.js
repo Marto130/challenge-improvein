@@ -1,10 +1,11 @@
 "use strict";
 
 const express = require("express");
+const { createTvShow, createEpisode } = require("../controllers/tvShow");
+
 const api = express.Router();
 
-api.get("/", (req, res) => {
-  res.status(200).send({ message: "Endpoint tvShow" });
-});
+api.post("/", createTvShow);
+api.post("/episode", createEpisode);
 
 module.exports = api;

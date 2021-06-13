@@ -20,8 +20,8 @@ const MovieSchema = new Schema({
       required: [true, 'The movie director is required.']
     },
 
-    releaseDate: {
-        type: Date,
+    year: {
+        type: String,
     },
 
     genre: {
