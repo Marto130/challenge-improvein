@@ -4,13 +4,15 @@
 The API allows to load information about movies, tvShows episodes, actors and directors in a database deployed in mongoAtlas. It also allows to get this information about movies and tvShows episodes.  
 It also implements user signUp and signIn, authentication by token with JWT and an endpoint for refresh token.
 
-**The API will run with Atlas. There are loaded some actors, directors, movies and tvShows.**  
+* **The API uses MongoDB Atlas as database. There are loaded some actors, directors, movies and tvShows.**  
 
-**In the project is attached a collection of Postman with the endpoints to create these entities.**
+* User loaded in the database:  
+    **email:** admin@admin.com  
+  **password:** admin.
 
-User created in the database:  
-**email:** admin@admin.com  
-**password:** admin.
+* **In the project is attached a collection of Postman with the endpoints to create these entities.**
+
+
 
 ## Tech Stack
 
@@ -44,7 +46,7 @@ To deploy this project run
 **Attached to the project is a collection of postman with the endpoints to use the API.**
 
 #### Movie: search movies
-**Available filters:** title, actor, director, year, genre, originalLanguage. 
+**Available filters:** title, actor, director, year, genre, originalLanguage.
 The Response is in descending order by year.
 ```http
   GET /api/v1/movies?title=Point Break&actor=Keanu Charles Reeves&director=&year=1991&genre=action&originalLanguaje
