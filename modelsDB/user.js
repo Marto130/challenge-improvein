@@ -16,6 +16,13 @@ const UserSchema = new Schema({
     required: [true, "The password is required."],
   },
 
+  refreshToken: {
+    token: {type: String},
+    expiresIn: {type: Number},
+    status: {type: Boolean, default: false},
+    createdAt: {type: Date}
+  },
+
   status: {
     type: Boolean,
     default: true,

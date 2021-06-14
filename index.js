@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 
-const NODE_ENV = process.env.NODE_ENV || "dev";
+const NODE_ENV = process.env.NODE_ENV || "local";
 
 dotenv.config({
   path: `${NODE_ENV}.env`,

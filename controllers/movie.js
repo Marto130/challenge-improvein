@@ -24,7 +24,7 @@ async function createMovie(req, res) {
 async function getMovies(req, res) {
   try {
     const searchData = { ...req.query };
-
+    
     if (searchData.director) {
       const directorFound = await Director.findOne({
         name: searchData.director,

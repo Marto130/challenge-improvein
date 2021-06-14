@@ -5,15 +5,18 @@ const getSecret = () => {
   return process.env.SECRET;
 };
 
-function encodeToken(user) {
+function encodeToken(user, expireTimeInMinutes) {
+  const expireTime = expireTimeInMinutes * 7200;
   const payload = {
     sub: user._id,
   };
 
+
+
   try {
     return jwt.sign(payload, getSecret(), {
       algorithm: "HS256",
-      expiresIn: 1200,
+      expiresIn: expireTime,
     });
   } catch (error) {
     console.log(error);

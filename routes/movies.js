@@ -8,6 +8,6 @@ const api = express.Router();
 api.use(isAuth);
 
 api.post("/", createMovie);
-api.get("/", isAuth, getMovies);
+api.get("/", getMovies);
 
 module.exports = api;
